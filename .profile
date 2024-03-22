@@ -9,7 +9,7 @@ export MOZ_DBUS_REMOTE=1
 export GTK_CSD=0
 export GDK_BACKEND=wayland,x11
 # qt wayland
-export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORM="wayland"
 export QT_QPA_PLATFORMTHEME=qt6ct
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
 
