@@ -32,6 +32,7 @@ set $clip-persist '[ -x "$(command -v wl-clip-persist)" ] && pkill -x wl-clip-pe
 set $watch_playerctl '[ -x "$(command -v playerctl)" ] && pkill -x playerctl; playerctl -a metadata --format \"{{status}} {{title}}\" --follow | while read line; do waybar-signal playerctl; waybar-signal idle; done'
 set $nm_applet nm-applet
 set $apply_background waypaper --restore
+set $input fcitx5 -d
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
