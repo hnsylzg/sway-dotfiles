@@ -1,8 +1,29 @@
 {
 	"layer": "top",
-	"modules-left": ["custom/launcher","cpu","memory","disk","custom/playerctl","custom/playerlabel"],
-	"modules-center": ["sway/mode","sway/workspaces","custom/scratchpad","tray"],
-	"modules-right": ["custom/clipboard","temperature","backlight","pulseaudio","bluetooth","network","battery","clock"],
+	"modules-left": [
+		"custom/launcher",
+		"cpu",
+		"memory",
+		"disk",
+		"custom/playerctl",
+		"custom/playerlabel"
+	],
+	"modules-center": [
+		"sway/mode",
+		"sway/workspaces",
+		"custom/scratchpad",
+		"tray"
+	],
+	"modules-right": [
+		"custom/clipboard",
+		"temperature",
+//		"backlight",
+		"pulseaudio",
+//		"bluetooth",
+		"network",
+//		"battery",
+		"clock"
+	],
 //	"sway/workspaces": {
 //		"format": "{icon}",
 //		"on-click": "activate",
