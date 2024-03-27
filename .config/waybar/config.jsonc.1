@@ -1,30 +1,9 @@
 {
 	"layer": "top",
-	"modules-left": [
-		"custom/launcher",
-		"cpu",
-		"memory",
-		"disk",
-		"custom/playerctl",
-		"custom/playerlabel"
-	],
-	"modules-center": [
-		"sway/mode",
-		"sway/workspaces",
-		"custom/scratchpad",
-		"tray"
-	],
-	"modules-right": [
-		"custom/clipboard",
-		"temperature",
-//		"backlight",
-		"pulseaudio",
-//		"bluetooth",
-		"network",
-//		"battery",
-		"clock"
-	],
-//	"sway/workspaces": {
+	"modules-left": ["custom/launcher","cpu","memory","disk","custom/playerctl","custom/playerlabel"],
+	"modules-center": ["hyprland/submap","hyprland/workspaces","tray"],
+	"modules-right": ["custom/clipboard","temperature","backlight","pulseaudio","bluetooth","network","battery","clock"],
+//	"hyprland/workspaces": {
 //		"format": "{icon}",
 //		"on-click": "activate",
 //		"format-icons": {
@@ -72,6 +51,8 @@
 	},
 	"backlight": {
 		// "device": "acpi_video1",
+		"on-scroll-up": "brightnessctl s +5%",
+    	"on-scroll-down": "brightnessctl s 5%-",
 		"format": "{icon} {percent}%",
 		"format-icons": ["", "", "", "", "", "", "", "", ""]
 	},
@@ -100,9 +81,9 @@
 		"format-alt": " {:%H:%M}"
 	},
 	"cpu": {
-		"format": "{usage}% 󰍛",
+		"format": "󰍛 {usage}%",
 		"interval": 2,
-		"on-click": "foot htop",
+		"on-click": "$TERMINAL htop",
 		"tooltip": true
 	},
 	"pulseaudio": {
@@ -178,11 +159,11 @@
         "exec": "/bin/sh ~/.config/sway/scripts/scratchpad.sh",
         "on-click": "swaymsg 'scratchpad show'",
         "signal": 7
-    	},
+	},
 	"memory": {
 		"interval": 30,
-		"format": "{used:0.1f}G/{total:0.1f}G ",
-		"on-click": "foot htop"
+		"format": "󰘚 {used:0.1f}G/{total:0.1f}G",
+		"on-click": "$TERMINAL htop"
 	},
 	"disk": {
 		"interval": 30,
