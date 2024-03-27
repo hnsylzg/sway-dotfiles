@@ -58,7 +58,7 @@
       "default": ["", "", ""]
     },
     "scroll-step": 1,
-    "on-click": "$TERMINAL pulsemixer",
+    "on-click": "foot pulsemixer",
     "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "tooltip": false,
   },
@@ -86,12 +86,12 @@
     "states": {
       "warning": 85,
     },
-    "on-click": "$TERMINAL htop"
+    "on-click": "foot htop"
   },
   "cpu": {
     "interval": 2,
     "format": "󰍛 {usage}%",
-    "on-click": "$TERMINAL htop"
+    "on-click": "foot htop"
   },
   "mpd": {
     "max-length": 25,
@@ -123,7 +123,7 @@
 		// "format-critical": "{tem:qperatureC}°C {icon}",
 		"format": "{icon} {temperatureC}°C",
 		"format-icons": ["", "", ""],
-		"on-click": "$TERMINAL htop"
+		"on-click": "foot htop"
   },
    "bluetooth": {
 		"format": " {status}",
@@ -135,7 +135,7 @@
 		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
 		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
 		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-		"on-click": "$TERMINAL bluetuith",
+		"on-click": "foot bluetuith",
 		"on-click-right": "rfkill toggle bluetooth"
   },
   "custom/powermenu": {

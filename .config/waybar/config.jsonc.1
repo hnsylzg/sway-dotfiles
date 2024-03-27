@@ -1,7 +1,7 @@
 {
 	"layer": "top",
 	"modules-left": ["custom/launcher","cpu","memory","disk","custom/playerctl","custom/playerlabel"],
-	"modules-center": ["hyprland/submap","hyprland/workspaces","tray"],
+	"modules-center": ["sway/mode","sway/workspaces","tray"],
 	"modules-right": ["custom/clipboard","temperature","backlight","pulseaudio","bluetooth","network","battery","clock"],
 //	"hyprland/workspaces": {
 //		"format": "{icon}",
@@ -83,7 +83,7 @@
 	"cpu": {
 		"format": "󰍛 {usage}%",
 		"interval": 2,
-		"on-click": "$TERMINAL htop",
+		"on-click": "foot htop",
 		"tooltip": true
 	},
 	"pulseaudio": {
@@ -163,7 +163,7 @@
 	"memory": {
 		"interval": 30,
 		"format": "󰘚 {used:0.1f}G/{total:0.1f}G",
-		"on-click": "$TERMINAL htop"
+		"on-click": "foot htop"
 	},
 	"disk": {
 		"interval": 30,
