@@ -1,6 +1,6 @@
 {
 	"layer": "top",
-	"modules-left": ["custom/launcher","cpu","memory","disk","custom/playerctl","custom/playerlabel"],
+	"modules-left": ["custom/launcher","cpu","memory","disk","custom/playerctl"],
 	"modules-center": ["sway/mode","sway/workspaces","tray"],
 	"modules-right": ["custom/clipboard","temperature","backlight","pulseaudio","bluetooth","network","battery","clock"],
 //	"hyprland/workspaces": {
@@ -20,10 +20,10 @@
 //	},
 	"network": {
 		// "interface": "wlp2*", // (Optional) To force the use of this interface
-		"format-wifi": "  {essid} ({signalStrength}%)",
+		"format-wifi": "󰖩 {essid} ({signalStrength}%)",
 		"format-ethernet": "󰈀 {ipaddr}",
-		"tooltip-format": "󰈀 {ifname} via {gwaddr}",
-		"format-linked": "󰈀 {ifname} (No IP)",
+		"tooltip-format": "{ifname} via {gwaddr}",
+		"format-linked": " {ifname} (No IP)",
 		"format-disconnected": "⚠ Disconnected",
 		"format-alt": "{ifname}: {ipaddr}/{cidr}"
 	},
@@ -107,29 +107,37 @@
 		"on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"on-click-middle": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 	},
+//	"custom/playerctl": {
+//		"interval": "once",
+//		"tooltip": true,
+//		"return-type": "json",
+//		"format": "{icon}",
+//		"format-icons": {
+//			"Playing": "󰏦",
+//			// "Playing": "󰏥",
+//			"Paused": "󰐍",
+//			// "Paused": "󰐌"
+//   			"Stopped": ""
+//		},
+//		"exec": "playerctl metadata --format '{\"alt\": \"{{status}}\", \"tooltip\": \"{{playerName}}:  {{markup_escape(title)}} - {{markup_escape(artist)}}\" }'",
+//		"on-click": "playerctl play-pause",
+//		"on-click-middle": "playerctl previous",
+//		"on-click-right": "playerctl next",
+//		"on-scroll-up": "playerctl position 10-",
+//		"on-scroll-down": "playerctl position 10+",
+//		"signal": 5
+//	},
 	"custom/playerctl": {
-		"interval": "once",
-		"tooltip": true,
-		"return-type": "json",
-		"format": "{icon}",
-		"format-icons": {
-			"Playing": "󰏦",
-			// "Playing": "󰏥",
-			"Paused": "󰐍"
-			// "Paused": "󰐌"
-		},
-		"exec": "playerctl metadata --format '{\"alt\": \"{{status}}\", \"tooltip\": \"{{playerName}}:  {{markup_escape(title)}} - {{markup_escape(artist)}}\" }'",
-		"on-click": "playerctl play-pause",
-		"on-click-middle": "playerctl previous",
-		"on-click-right": "playerctl next",
-		"on-scroll-up": "playerctl position 10-",
-		"on-scroll-down": "playerctl position 10+",
-		"signal": 5
-	},
-	"custom/playerlabel": {
-		"format": "{}",
+		"format": "{icon} <span foreground='#c0caf5'>{}</span>",
 		"return-type": "json",
 		"max-length": 48,
+  		"format-icons": {
+			"Playing": "󰏦",
+			// "Playing": "󰏥",
+			"Paused": "󰐍",
+			// "Paused": "󰐌"
+   			"Stopped": ""
+		},
 		"exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
 		"on-click": "playerctl play-pause",
 		"on-click-middle": "playerctl previous",

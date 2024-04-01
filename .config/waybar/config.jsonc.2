@@ -12,6 +12,7 @@
     "clock"
   ],
   "modules-right": [
+    "custom/clipboard",
     "pulseaudio",
     "backlight",
     "memory",
@@ -19,13 +20,13 @@
     "bluetooth",
     "network",
     "battery",
-   // "custom/powermenu",
+    // "custom/powermenu",
     "tray"
   ],
   "custom/launcher": {
     "format": "",
-		"on-click": "rofi -show combi -combi-modi 'drun,run' -show-icons",
-		"on-click-right": "killall rofi"
+    "on-click": "rofi -show combi -combi-modi 'drun,run' -show-icons",
+    "on-click-right": "killall rofi"
   },
   "custom/cava-internal": {
     "exec": "~/.config/waybar/cava.sh",
@@ -44,15 +45,15 @@
     "tooltip": false
   },
   "backlight": {
-   // "device": "intel_backlight",
+    // "device": "intel_backlight",
     "on-scroll-up": "brightnessctl s +5%",
     "on-scroll-down": "brightnessctl s 5%-",
     "format": "{icon} {percent}%",
-    "format-icons": ["󰃞","󰃟","󰃠"]
+    "format-icons": ["󰃞", "󰃟", "󰃠"]
   },
   "pulseaudio": {
     "scroll-step": 1,
-    "format": "{icon} {volume}%", 
+    "format": "{icon} {volume}%",
     "format-muted": "󰖁 Muted",
     "format-icons": {
       "default": ["", "", ""]
@@ -97,50 +98,61 @@
     "max-length": 25,
     "format": "<span foreground='#bb9af7'></span> {title}",
     "format-paused": " {title}",
-    "format-stopped":"<span foreground='#bb9af7'></span>",
+    "format-stopped": "<span foreground='#bb9af7'></span>",
     "format-disconnected": "",
     "on-click": "mpc --quiet toggle",
     "on-click-right": "mpc ls | mpc add",
     "on-click-middle": "foot ncmpcpp",
     "on-scroll-up": "mpc --quiet prev",
     "on-scroll-down": "mpc --quiet next",
-    "smooth-scrolling-threshold":5,
+    "smooth-scrolling-threshold": 5,
     "tooltip-format": "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})"
+  },
+  "custom/clipboard": {
+    "format": "󰨸",
+    "interval": "once",
+    "return-type": "json",
+    "on-click": "~/.config/hypr/scripts/clipboard.sh; waybar-signal clipboard",
+    "on-click-right": "~/.config/hypr/scripts/clipboard-del.sh; waybar-signal clipboard",
+    "on-click-middle": "rm -f ~/.cache/cliphist/db; waybar-signal clipboard",
+    "exec": "printf '{\"tooltip\":\"%s\"}' $(cliphist list | wc -l)' item(s) in the clipboard\r(Mid click to clear)'",
+    "exec-if": "[ -x \"$(command -v cliphist)\" ] && [ $(cliphist list | wc -l) -gt 0 ]",
+    "signal": 9
   },
   "network": {
     //"interval": 1,
-    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-wifi": "󰖩 {essid} ({signalStrength}%)",
     "format-ethernet": "󰈀 {ipaddr}",
-    "tooltip-format": "󰈀 {ifname} via {gwaddr}",
-    "format-linked": "󰈀 {ifname} (No IP)",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "format-linked": " {ifname} (No IP)",
     "format-disconnected": "⚠ Disconnected",
     "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
   "temperature": {
-		// "thermal-zone": 2,
-		// "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-		"critical-threshold": 80,
-		// "format-critical": "{tem:qperatureC}°C {icon}",
-		"format": "{icon} {temperatureC}°C",
-		"format-icons": ["", "", ""],
-		"on-click": "foot htop"
+    // "thermal-zone": 2,
+    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 80,
+    // "format-critical": "{tem:qperatureC}°C {icon}",
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", ""],
+    "on-click": "foot htop"
   },
-   "bluetooth": {
-		"format": " {status}",
-		"format-disabled": "󰂲 {status}",
-		"format-connected": " {device_alias}",
-		"format-connected-battery": " {device_alias} {device_battery_percentage}%",
-		// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
-		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-		"on-click": "foot bluetuith",
-		"on-click-right": "rfkill toggle bluetooth"
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "󰂲 {status}",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "foot bluetuith",
+    "on-click-right": "rfkill toggle bluetooth"
   },
   "custom/powermenu": {
     "format": "",
-   // "on-click": "~/.config/rofi/powermenu.sh",
+    // "on-click": "~/.config/rofi/powermenu.sh",
     "on-click": "hyprctl exc",
     "tooltip": false
   },
