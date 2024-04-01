@@ -90,8 +90,8 @@
 		// "scroll-step": 1, // %, can be a float
 		"format": "{icon} {volume}% {format_source}",
 		"format-bluetooth": "{icon}  {volume}% {format_source}",
-		"format-bluetooth-muted": "  {icon}  {format_source}",
-		"format-muted": "  {format_source}",
+		"format-bluetooth-muted": "󰖁  {icon}  {format_source}",
+		"format-muted": "󰖁  {format_source}",
 		"format-source": " {volume}%",
 		"format-source-muted": "",
 		"format-icons": {
@@ -178,6 +178,14 @@
 		"format": "󰋊 {free}",
 		"path": "/"
 	},
+	"idle_inhibitor": {
+    		"format": "{icon}",
+    		"format-icons": {
+      			"activated": "",
+      			"deactivated": ""
+    		},
+    		"tooltip": false
+  	},
 	"custom/launcher": {
 		"format": "",
 		"on-click": "rofi -show combi -combi-modi 'drun,run' -show-icons",
