@@ -220,6 +220,12 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 #
 # Status Bar:
 #
