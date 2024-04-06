@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "custom/scratchpad", "sway/mode", "tray"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/zypper", "network", "bluetooth", "cpu", "memory", "temperature", "backlight", "battery", "battery#bat2", "pulseaudio", "custom/layout", "clock", "custom/notification"],
+    "modules-right": ["custom/update", "network", "bluetooth", "cpu", "memory", "temperature", "backlight", "battery", "battery#bat2", "pulseaudio", "custom/layout", "clock", "custom/notification"],
     "sway/mode": {
         "format": " {}"
     },
@@ -29,7 +29,7 @@
         "tooltip": false,
         "exec": "swaymsg -mrt subscribe '[\"input\"]' | jq -r --unbuffered \"select(.change == \\\"xkb_layout\\\") | .input | select(.type == \\\"keyboard\\\") | .xkb_active_layout_name | .[0:2]\""
     },
-    "custom/zypper": {
+    "custom/update": {
         "format": "{} ",
         "interval": 3600,
         "exec": "zypper lu | grep 'v |' | wc -l; echo 'packages to update'",
