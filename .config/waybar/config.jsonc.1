@@ -225,15 +225,13 @@
 		"on-scroll-down": "playerctl position 10+"
 	},
 	"custom/scratchpad": {
-		"interval": "once",
+		"format-text": "{}",
 		"return-type": "json",
-		"format": "{icon}",
-		"format-icons": {
-			"one": "󰖯",
-			"many": "󰖲"
-		},
-		"exec": "/bin/sh ~/.config/sway/scripts/scratchpad.sh",
+		"interval": 3,
+		//"exec": "/bin/sh ~/.config/sway/scripts/scratchpad.sh",
+		"exec": "~/.config/sway/scripts/scratchpad-indicator.sh 2> /dev/null",
+		"exec-if": "exit 0",
 		"on-click": "swaymsg 'scratchpad show'",
-		"signal": 7
+		"on-click-right": "swaymsg 'move scratchpad'"
 	}
 }
