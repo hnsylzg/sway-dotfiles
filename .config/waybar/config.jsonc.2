@@ -15,6 +15,7 @@
     "clock"
   ],
   "modules-right": [
+    "custom/update",
     "custom/clipboard",
     "pulseaudio",
     "backlight",
@@ -185,6 +186,16 @@
     "on-click": "hyprctl exc",
     "tooltip": false
   },
+  "custom/update": {
+    "format": " {}",
+    "interval": 3600,
+    "return-type": "json",
+    "exec": "~/.config/waybar/checkupdates.sh status",
+    "exec-if": "~/.config/waybar/checkupdates.sh check",
+    "on-click": "~/.config/waybar/checkupdates.sh check && ~/.config/waybar/checkupdates.sh upgrade",
+    "on-click-middle": "waybar-signal pacman",
+    "signal": 14
+  }
   "custom/scratchpad": {
     "format-text": "{}",
     "return-type": "json",
