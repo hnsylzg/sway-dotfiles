@@ -1,209 +1,209 @@
 {
-  "layer": "top",
-  //"height": 30,
-  "modules-left": [
-    "custom/launcher",
-    "sway/workspaces",
-    "custom/scratchpad",
-    "temperature",
-    "idle_inhibitor",
-    "mpd",
-    "custom/cava-internal"
-  ],
-  "modules-center": [
-    "sway/mode",
-    "clock"
-  ],
-  "modules-right": [
-    "custom/update",
-    "custom/clipboard",
-    "pulseaudio",
-    "backlight",
-    "memory",
-    "cpu",
-    "bluetooth",
-    "network",
-    "battery",
-    // "custom/powermenu",
-    "tray"
-  ],
-  "sway/workspaces": {
-    "disable-scroll": true
-  },
-  "backlight": {
-    // "device": "intel_backlight",
-    "on-scroll-up": "brightnessctl s +5%",
-    "on-scroll-down": "brightnessctl s 5%-",
-    "format": "{icon} {percent}%",
-    "format-icons": [
-      "󰃞",
-      "󰃟",
-      "󰃠"
-    ]
-  },
-  "battery": {
-    "interval": 10,
-    "states": {
-      "warning": 20,
-      "critical": 10
-    },
-    "format": "{icon} {capacity}%",
-    "format-icons": [
-      "󱃍",
-      "󰁺",
-      "󰁼",
-      "󰁽",
-      "󰁾",
-      "󰁿",
-      "󰂀",
-      "󰂁",
-      "󰂂",
-      "󰁹"
+    "layer": "top",
+    //"height": 30,
+    "modules-left": [
+        "custom/launcher",
+        "sway/workspaces",
+        "custom/scratchpad",
+        "temperature",
+        "idle_inhibitor",
+        "mpd",
+        "custom/cava-internal"
     ],
-    "format-full": "{icon} {capacity}%",
-    "format-charging": "󰂄 {capacity}%",
-    "tooltip": false
-  },
-  "bluetooth": {
-    "format": " {status}",
-    "format-disabled": "󰂲 {status}",
-    "format-connected": " {device_alias}",
-    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
-    // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
-    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-    "on-click": "foot bluetuith",
-    "on-click-right": "rfkill toggle bluetooth"
-  },
-  "clock": {
-    //"format": " {:L%I:%M %p  %A %b %d}",
-    "format": " {:L%I:%M %p  %A %m/%d}",
-    "tooltip-format": "<big>{:L%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": " {:L%I:%M %p}"
-  },
-  "cpu": {
-    "interval": 2,
-    "format": "󰍛 {usage}%",
-    "on-click": "foot htop"
-  },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    },
-    "tooltip": false
-  },
-  "memory": {
-    "interval": 2,
-    "format": "󰘚 {percentage}%",
-    "states": {
-      "warning": 85
-    },
-    "on-click": "foot htop"
-  },
-  "mpd": {
-    "max-length": 25,
-    "format": "<span foreground='#bb9af7'></span> {title}",
-    "format-paused": " {title}",
-    "format-stopped": "<span foreground='#bb9af7'></span>",
-    "format-disconnected": "",
-    "on-click": "mpc --quiet toggle",
-    "on-click-right": "mpc ls | mpc add",
-    "on-click-middle": "foot ncmpcpp",
-    "on-scroll-up": "mpc --quiet prev",
-    "on-scroll-down": "mpc --quiet next",
-    "smooth-scrolling-threshold": 5,
-    "tooltip-format": "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})"
-  },
-  "network": {
-    //"interval": 1,
-    "format-wifi": "󰖩 {essid} ({signalStrength}%)",
-    "format-ethernet": "󰈀 {ipaddr}",
-    "tooltip-format": "{ifname} via {gwaddr}",
-    "format-linked": " {ifname} (No IP)",
-    "format-disconnected": "⚠ Disconnected",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
-  },
-  "pulseaudio": {
-    "scroll-step": 1,
-    "format": "{icon} {volume}%",
-    "format-muted": "󰖁 Muted",
-    "format-icons": {
-      "default": [
-        "",
-        "",
-        ""
-      ]
-    },
-    "on-click": "foot pulsemixer",
-    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "tooltip": false
-  },
-  "temperature": {
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-    "critical-threshold": 80,
-    // "format-critical": "{tem:qperatureC}°C {icon}",
-    "format": "{icon} {temperatureC}°C",
-    "format-icons": [
-      "",
-      "",
-      ""
+    "modules-center": [
+        "sway/mode",
+        "clock"
     ],
-    "on-click": "foot htop"
-  },
-  "tray": {
-    "icon-size": 20,
-    "spacing": 5
-  },
-  "custom/cava-internal": {
-    "exec": "~/.config/waybar/cava.sh",
-    //"exec": "~/.config/waybar/cava-internal.sh",
-    "tooltip": false
-  },
-  "custom/clipboard": {
-    "format": "󰨸",
-    "interval": "once",
-    "return-type": "json",
-    "on-click": "~/.config/hypr/scripts/clipboard.sh; waybar-signal clipboard",
-    "on-click-right": "~/.config/hypr/scripts/clipboard-del.sh; waybar-signal clipboard",
-    "on-click-middle": "rm -f ~/.cache/cliphist/db; waybar-signal clipboard",
-    "exec": "printf '{\"tooltip\":\"%s\"}' $(cliphist list | wc -l)' item(s) in the clipboard\r(Mid click to clear)'",
-    "exec-if": "[ -x \"$(command -v cliphist)\" ] && [ $(cliphist list | wc -l) -gt 0 ]",
-    "signal": 9
-  },
-  "custom/launcher": {
-    "format": "",
-    "on-click": "rofi -show combi -combi-modi 'drun,run' -show-icons",
-    "on-click-right": "killall rofi"
-  },
-  "custom/powermenu": {
-    "format": "",
-    // "on-click": "~/.config/rofi/powermenu.sh",
-    "on-click": "hyprctl exc",
-    "tooltip": false
-  },
-  "custom/update": {
-    "format": " {}",
-    "interval": 3600,
-    "return-type": "json",
-    "exec": "~/.config/waybar/checkupdates.sh status",
-    "exec-if": "~/.config/waybar/checkupdates.sh check",
-    "on-click": "~/.config/waybar/checkupdates.sh check && ~/.config/waybar/checkupdates.sh upgrade",
-    "on-click-middle": "waybar-signal pacman",
-    "signal": 14
-  },
-  "custom/scratchpad": {
-    "format-text": "{}",
-    "return-type": "json",
-    "interval": 3,
-    //"exec": "/bin/sh ~/.config/sway/scripts/scratchpad.sh",
-    "exec": "~/.config/waybar/scratchpad-indicator.sh 2> /dev/null",
-    "exec-if": "exit 0",
-    "on-click": "swaymsg 'scratchpad show'",
-    "on-click-right": "swaymsg 'move scratchpad'"
-  }
+    "modules-right": [
+        "custom/update",
+        "custom/clipboard",
+        "pulseaudio",
+        "backlight",
+        "memory",
+        "cpu",
+        "bluetooth",
+        "network",
+        "battery",
+        // "custom/powermenu",
+        "tray"
+    ],
+    "sway/workspaces": {
+        "disable-scroll": true
+    },
+    "backlight": {
+        // "device": "intel_backlight",
+        "on-scroll-up": "brightnessctl s +5%",
+        "on-scroll-down": "brightnessctl s 5%-",
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ]
+    },
+    "battery": {
+        "interval": 10,
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": [
+            "󱃍",
+            "󰁺",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ],
+        "format-full": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "tooltip": false
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "format-disabled": "󰂲 {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "foot bluetuith",
+        "on-click-right": "rfkill toggle bluetooth"
+    },
+    "clock": {
+        //"format": " {:L%I:%M %p  %A %b %d}",
+        "format": " {:L%I:%M %p  %A %m/%d}",
+        "tooltip-format": "<big>{:L%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": " {:L%I:%M %p}"
+    },
+    "cpu": {
+        "interval": 2,
+        "format": "󰍛 {usage}%",
+        "on-click": "foot htop"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 2,
+        "format": "󰘚 {percentage}%",
+        "states": {
+            "warning": 85
+        },
+        "on-click": "foot htop"
+    },
+    "mpd": {
+        "max-length": 25,
+        "format": "<span foreground='#bb9af7'></span> {title}",
+        "format-paused": " {title}",
+        "format-stopped": "<span foreground='#bb9af7'></span>",
+        "format-disconnected": "",
+        "on-click": "mpc --quiet toggle",
+        "on-click-right": "mpc ls | mpc add",
+        "on-click-middle": "foot ncmpcpp",
+        "on-scroll-up": "mpc --quiet prev",
+        "on-scroll-down": "mpc --quiet next",
+        "smooth-scrolling-threshold": 5,
+        "tooltip-format": "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})"
+    },
+    "network": {
+        //"interval": 1,
+        "format-wifi": "󰖩 {essid} ({signalStrength}%)",
+        "format-ethernet": "󰈀 {ipaddr}",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": " {ifname} (No IP)",
+        "format-disconnected": "⚠ Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁 Muted",
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "foot pulsemixer",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "tooltip": false
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{tem:qperatureC}°C {icon}",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "on-click": "foot htop"
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 5
+    },
+    "custom/cava-internal": {
+        "exec": "~/.config/waybar/cava.sh",
+        //"exec": "~/.config/waybar/cava-internal.sh",
+        "tooltip": false
+    },
+    "custom/clipboard": {
+        "format": "󰨸",
+        "interval": "once",
+        "return-type": "json",
+        "on-click": "~/.config/hypr/scripts/clipboard.sh; waybar-signal clipboard",
+        "on-click-right": "~/.config/hypr/scripts/clipboard-del.sh; waybar-signal clipboard",
+        "on-click-middle": "rm -f ~/.cache/cliphist/db; waybar-signal clipboard",
+        "exec": "printf '{\"tooltip\":\"%s\"}' $(cliphist list | wc -l)' item(s) in the clipboard\r(Mid click to clear)'",
+        "exec-if": "[ -x \"$(command -v cliphist)\" ] && [ $(cliphist list | wc -l) -gt 0 ]",
+        "signal": 9
+    },
+    "custom/launcher": {
+        "format": "",
+        "on-click": "rofi -show combi -combi-modi 'drun,run' -show-icons",
+        "on-click-right": "killall rofi"
+    },
+    "custom/powermenu": {
+        "format": "",
+        // "on-click": "~/.config/rofi/powermenu.sh",
+        "on-click": "hyprctl exc",
+        "tooltip": false
+    },
+    "custom/update": {
+        "format": " {}",
+        "interval": 3600,
+        "return-type": "json",
+        "exec": "~/.config/waybar/checkupdates.sh status",
+        "exec-if": "~/.config/waybar/checkupdates.sh check",
+        "on-click": "~/.config/waybar/checkupdates.sh check && ~/.config/waybar/checkupdates.sh upgrade",
+        "on-click-middle": "waybar-signal pacman",
+        "signal": 14
+    },
+    "custom/scratchpad": {
+        "format-text": "{}",
+        "return-type": "json",
+        "interval": 3,
+        //"exec": "/bin/sh ~/.config/sway/scripts/scratchpad.sh",
+        "exec": "~/.config/waybar/scratchpad-indicator.sh 2> /dev/null",
+        "exec-if": "exit 0",
+        "on-click": "swaymsg 'scratchpad show'",
+        "on-click-right": "swaymsg 'move scratchpad'"
+    }
 }
