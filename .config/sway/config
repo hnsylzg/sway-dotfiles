@@ -33,6 +33,7 @@ set $watch_playerctl '[ -x "$(command -v playerctl)" ] && pkill -x playerctl; pl
 set $nm_applet nm-applet
 set $apply_background waypaper --restore
 set $input fcitx5 -d
+set $foot_server foot --server
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
