@@ -50,7 +50,7 @@
 
 /* The whole bar */
 window#waybar {
-    /*background: @theme_bg_color;*/    
+    /*background: @theme_bg_color;*/
     background: rgba(20, 26, 27, 0.6);
     color: @wm_icon_bg;
     font-size: 14px;
@@ -83,7 +83,12 @@ window#waybar {
 #custom-playerctl,
 #custom-weather,
 #custom-update,
-#idle_inhibitor, #mpd, #custom-launcher, #custom-playerlabel, #custom-cava-internal, #custom-powermenu,
+#idle_inhibitor,
+#mpd,
+#custom-launcher,
+#custom-playerlabel,
+#custom-cava-internal,
+#custom-powermenu,
 #tray {
     padding-left: 10px;
     padding-right: 10px;
@@ -216,20 +221,20 @@ window#waybar {
 }
 
 #custom-playerctl.Paused {
-	color: #414868;
-	font-style: italic;
+    color: #414868;
+    font-style: italic;
 }
 
 #custom-playerctl.Stopped {
-	color: transparent;
-	background: transparent;
+    color: transparent;
+    background: transparent;
 }
 
 #mpd.paused {
-	color: #414868;
-	font-style: italic;
+    color: #414868;
+    font-style: italic;
 }
 
 #mpd.stopped {
-	background: transparent;
+    background: transparent;
 }
