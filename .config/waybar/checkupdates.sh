@@ -2,10 +2,10 @@
 
 case $1'' in
 'status') 
-    printf '{\"text\":\"%s\",\"tooltip\":\"%s\"}' "$(pamac checkupdates -q | wc -l)" "$(pamac checkupdates -q | awk 1 ORS='\\n' | sed 's/\\n$//')"
+    printf '{\"text\":\"%s\",\"tooltip\":\"%s\"}' "$(checkupdates --nocolor | wc -l)" "$(checkupdates --nocolor | awk 1 ORS='\\n' | sed 's/\\n$//')"
     ;;
 'check')
-    [ $(pamac checkupdates -q | wc -l) -gt 0 ]
+    [ $(checkupdates --nocolor | wc -l) -gt 0 ]
     exit $?
     ;;
 'upgrade')
@@ -16,7 +16,7 @@ case $1'' in
     elif [ -x "$(command -v pamac-manager)" ]; then
         pamac-manager --updates
     else
-        xdg-terminal-exec pacman -Syu
+        xdg-terminal-exec yay -Syu
     fi
     ;;
 esac
