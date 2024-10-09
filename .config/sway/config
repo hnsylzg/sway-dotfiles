@@ -28,7 +28,7 @@ set $initialize_mounting_daemon '[ -x "$(command -v pcmanfm)" ] && pcmanfm -d'
 set $autotiling '[ -x "$(command -v autotiling)" ] && autotiling || [ -x "$(command -v autotiling-rs)" ] && autotiling-rs'
 #set $cliphist_watch '[ -x "$(command -v wl-paste)" ] && [ -x "$(command -v cliphist)" ] && wl-paste --watch waybar-signal clipboard'
 set $cliphist_store '[ -x "$(command -v wl-paste)" ] && [ -x "$(command -v cliphist)" ] && wl-paste --watch cliphist store'
-set $clip-persist '[ -x "$(command -v wl-clip-persist)" ] && pkill -x wl-clip-persist; wl-clip-persist --clipboard regular'
+set $clip-persist '[ -x "$(command -v wl-clip-persist)" ] && pkill -x wl-clip-persist; wl-clip-persist --clipboard regular --all-mime-type-regex \'(?i)^(?!image/x-inkscape-svg).+\''
 set $watch_playerctl '[ -x "$(command -v playerctl)" ] && pkill -x playerctl; playerctl -a metadata --format \"{{status}} {{title}}\" --follow | while read line; do waybar-signal playerctl; waybar-signal idle; done'
 set $nm_applet nm-applet
 set $apply_background waypaper --restore
