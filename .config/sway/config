@@ -73,7 +73,7 @@ exec swayidle -w \
 # Read `man 5 sway-input` for more information about this section.
 
 set $opacity 0.9
-for_window [app_id="pcmanfm"] opacity $opacity
+for_window [app_id="pcmanfm-qt"] opacity $opacity
 for_window [app_id="code-url-handler"] opacity $opacity
 for_window [app_id="waypaper"] floating enable
 #for_window [app_id="linuxqq"] floating enable
