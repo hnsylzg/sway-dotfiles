@@ -9,7 +9,8 @@
         "sway/workspaces",
         "custom/scratchpad",
         "sway/mode",
-        "tray"
+        "tray",
+        "custom/playerctl"
     ],
     "modules-center": [
         "sway/window"
@@ -234,6 +235,35 @@
         "exec-if": "exit 0",
         "on-click": "swaymsg 'scratchpad show'",
         "on-click-right": "swaymsg 'move scratchpad'"
+    },
+    "custom/playerctl": {
+        "format": "<span foreground='#bb9af7'>{icon}</span> {0}",
+        "return-type": "json",
+        "max-length": 48,
+        "format-icons": {
+            "Playing": "󰏦",
+            // "Playing": "󰏥",
+            "Paused": "󰐍",
+            // "Paused": "󰐌"
+            "Stopped": ""
+        },
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "on-click": "playerctl play-pause",
+        "on-click-middle": "playerctl previous",
+        "on-click-right": "playerctl next",
+        "on-scroll-up": "playerctl position 10-",
+        "on-scroll-down": "playerctl position 10+"
+    },
+    "custom/playerlabel": {
+        "format": "{}",
+        "return-type": "json",
+        "max-length": 48,
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "on-click": "playerctl play-pause",
+        "on-click-middle": "playerctl previous",
+        "on-click-right": "playerctl next",
+        "on-scroll-up": "playerctl position 10-",
+        "on-scroll-down": "playerctl position 10+"
     },
     "custom/update": {
         "format": "{} ",
