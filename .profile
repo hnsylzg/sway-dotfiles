@@ -20,7 +20,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export SHELL=/usr/bin/zsh
 
 # set ozone platform to wayland
-export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export ELECTRON_OZONE_PLATFORM_HINT=auto
 
 # Disable hardware cursors. This might fix issues with
 # disappearing cursors
