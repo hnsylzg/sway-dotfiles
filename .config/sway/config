@@ -24,7 +24,8 @@ set $clipboard cliphist list | rofi -dmenu -font "$gui-font" -p "Select item to 
 set $clipboard-del cliphist list | rofi -dmenu -font "$gui-font" -p "Select item to delete" -lines 10 | cliphist delete
 
 set $locking swaylock -f -c 000000 --show-failed-attempts --fade-in 0.2 --grace 2 --effect-vignette 0.5:0.5 --effect-blur 7x5 --ignore-empty-password --screenshots --clock
-set $initialize_mounting_daemon '[ -x "$(command -v pcmanfm-qt)" ] && pcmanfm-qt -d'
+# set $initialize_mounting_daemon '[ -x "$(command -v pcmanfm-qt)" ] && pcmanfm-qt -d'
+set $initialize_mounting_daemon '[ -x "$(command -v thunar)" ] && thunar --daemon'
 set $autotiling '[ -x "$(command -v autotiling)" ] && autotiling || [ -x "$(command -v autotiling-rs)" ] && autotiling-rs'
 #set $cliphist_watch '[ -x "$(command -v wl-paste)" ] && [ -x "$(command -v cliphist)" ] && wl-paste --watch waybar-signal clipboard'
 set $cliphist_store '[ -x "$(command -v wl-paste)" ] && [ -x "$(command -v cliphist)" ] && wl-paste --watch cliphist store'
