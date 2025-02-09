@@ -90,7 +90,8 @@ for_window [app_id="waypaper"] floating enable
 
     # Start your launcher
     bindsym $mod+d exec $menu
-    bindsym $mod+x exec pcmanfm-qt
+    # bindsym $mod+x exec pcmanfm-qt
+    bindsym $mod+x exec thunar
     bindsym $mod+c exec code
     bindsym $mod+b exec google-chrome-stable
 
