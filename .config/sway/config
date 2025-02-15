@@ -20,8 +20,8 @@ set $term foot
 # on the original workspace that the command was run on.
 set $menu rofi -show drun -show-icons
 
-set $clipboard cliphist list | rofi -dmenu -font "$gui-font" -p "Select item to copy" -lines 10 | cliphist decode | wl-copy
-set $clipboard-del cliphist list | rofi -dmenu -font "$gui-font" -p "Select item to delete" -lines 10 | cliphist delete
+set $clipboard cliphist list | rofi -dmenu -font "$gui-font" -p "Select item to copy" -lines 10 | cliphist decode | wl-copy; waybar-signal clipboard
+set $clipboard-del cliphist list | rofi -dmenu -font "$gui-font" -p "Select item to delete" -lines 10 | cliphist delete; waybar-signal clipboard
 
 set $locking swaylock -f -c 000000 --show-failed-attempts --fade-in 0.2 --grace 2 --effect-vignette 0.5:0.5 --effect-blur 7x5 --ignore-empty-password --screenshots --clock
 # set $initialize_mounting_daemon '[ -x "$(command -v pcmanfm-qt)" ] && pcmanfm-qt -d'
