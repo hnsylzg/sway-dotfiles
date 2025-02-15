@@ -199,9 +199,11 @@
         "return-type": "json",
         "max-length": 48,
         "format-icons": {
-            "Playing": "",
+            "Playing": "",
+            //"Playing": "󰏦",
             // "Playing": "󰏥",
-            "Paused": "",
+            "Paused": "",
+            //"Paused": "󰐍",
             // "Paused": "󰐌"
             "Stopped": ""
         },
