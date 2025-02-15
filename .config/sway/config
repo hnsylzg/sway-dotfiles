@@ -98,7 +98,7 @@ for_window [app_id="waypaper"] floating enable
     bindsym $mod+x exec thunar
     bindsym $mod+c exec code
     bindsym $mod+b exec google-chrome-stable
-    bindsym $mod+v, exec 'cliphist list | rofi -dmenu -p "Select item to copy" | cliphist decode | wl-copy'
+    bindsym $mod+v exec cliphist list | rofi -dmenu -p "Select item to copy" | cliphist decode | wl-copy
 
     bindsym $mod++Shift+w exec waypaper
 
