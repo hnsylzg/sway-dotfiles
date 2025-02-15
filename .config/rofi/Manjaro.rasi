@@ -10,5 +10,5 @@ listview {
   columns : 1;
 }
 window {
-  width : 25em;
+  width : 30em;
 }
