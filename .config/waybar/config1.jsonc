@@ -6,6 +6,7 @@
         "cpu",
         "memory",
         "disk",
+        "temperature",
         "idle_inhibitor",
         "custom/playerctl"
     ],
@@ -18,7 +19,6 @@
     "modules-right": [
         "custom/update",
         "custom/clipboard",
-        "temperature",
         "backlight",
         "pulseaudio",
         "bluetooth",
