@@ -112,8 +112,8 @@
     },
     "mpd": {
         "max-length": 25,
-        "format": "<span foreground='#bb9af7'></span> {title}",
-        "format-paused": " {title}",
+        "format": "<span foreground='#bb9af7'></span> {title}",
+        "format-paused": " {title}",
         "format-stopped": "<span foreground='#bb9af7'></span>",
         "format-disconnected": "",
         "on-click": "mpc --quiet toggle",
