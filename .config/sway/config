@@ -51,7 +51,7 @@ set $foot_server foot --server
 ### Idle configuration
 #
 # Example configuration:
-#
+#:
 # exec systemctl --user start sway-session.target
 exec swayidle -w \
           timeout 300 '$locking' \
