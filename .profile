@@ -20,7 +20,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export SHELL=/usr/bin/zsh
 
 # set ozone platform to wayland
-gccexport ELECTRON_OZONE_PLATFORM_HINT=auto
+export ELECTRON_OZONE_PLATFORM_HINT=auto
 export ELECTRON_OZONE_PLATFORM_HINT=wayland
 
 # Disable hardware cursors. This might fix issues with
