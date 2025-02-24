@@ -248,9 +248,9 @@ bindsym Alt+down exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-# bar {
-#     position top
-#     swaybar_command waybar
+bar {
+    position top
+    swaybar_command waybar
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
@@ -261,7 +261,7 @@ bindsym Alt+down exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
     #    background #323232
     #    inactive_workspace #32323200 #32323200 #5c5c5c
     #}
-# }
+}
 
 default_border pixel 1
 hide_edge_borders smart
