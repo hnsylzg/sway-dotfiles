@@ -11,6 +11,7 @@
         "custom/playerctl"
     ],
     "modules-center": [
+        "custom/wf-recorder",
         "sway/mode",
         "sway/workspaces",
         "custom/scratchpad",
@@ -225,6 +226,16 @@
         "on-scroll-up": "playerctl position 10-",
         "on-scroll-down": "playerctl position 10+"
     },
+    "custom/scratchpad": {
+        "format-text": "{}",
+        "return-type": "json",
+        "interval": 3,
+        //"exec": "/bin/sh ~/.config/sway/scripts/scratchpad.sh",
+        "exec": "~/.config/waybar/scratchpad-indicator.sh 2> /dev/null",
+        "exec-if": "exit 0",
+        "on-click": "swaymsg 'scratchpad show'",
+        "on-click-right": "swaymsg 'move scratchpad'"
+    },
     "custom/update": {
         "format": " {}",
         "interval": 3600,
@@ -235,14 +246,13 @@
         "on-click-middle": "waybar-signal pacman",
         "signal": 14
     },
-    "custom/scratchpad": {
-        "format-text": "{}",
+    "custom/wf-recorder": {
+        "interval": "once",
         "return-type": "json",
-        "interval": 3,
-        //"exec": "/bin/sh ~/.config/sway/scripts/scratchpad.sh",
-        "exec": "~/.config/waybar/scratchpad-indicator.sh 2> /dev/null",
-        "exec-if": "exit 0",
-        "on-click": "swaymsg 'scratchpad show'",
-        "on-click-right": "swaymsg 'move scratchpad'"
+        "format": "{}",
+        "exec": "echo '{\"class\": \"recording\",\"text\":\"󰑊\",\"tooltip\":\"press $mod+Esc to stop recording\"}'",
+        "exec-if": "pgrep wf-recorder",
+        "on-click": "waybar-signal recorder",
+        "signal": 8
     }
 }

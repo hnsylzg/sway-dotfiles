@@ -37,6 +37,21 @@ set $nm_applet nm-applet
 set $apply_background waypaper --restore
 set $input fcitx5 -d
 set $foot_server foot --server
+
+# Screenshot commands
+set $grimshot grimshot
+set $pipe_output $grimshot save output -
+set $pipe_selection $grimshot save area -
+set $notify_paste [[ $(wl-paste -l) == "image/png" ]] && notify-send "Screenshot copied to clipboard"
+set $swappy swappy -f -
+set $upload_pipe curl -s -F "file=@-;filename=.png" https://x0.at/ | tee >(wl-copy) >(xargs notify-send)
+
+set $screenshot_screen $pipe_output | $swappy && $notify_paste
+set $screenshot_screen_upload $pipe_output | $upload_pipe
+
+set $screenshot_selection $pipe_selection | $swappy && $notify_paste
+set $screenshot_selection_upload $pipe_selection | $upload_pipe
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
