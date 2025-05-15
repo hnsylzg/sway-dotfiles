@@ -9,7 +9,6 @@
         "sway/workspaces",
         "custom/scratchpad",
         "sway/mode",
-        "custom/wf-recorder",
         "tray",
         "custom/playerctl"
     ],
@@ -17,6 +16,7 @@
         "sway/window"
     ],
     "modules-right": [
+        "custom/wf-recorder",
         "custom/update",
         "custom/clipboard",
         "network",
@@ -200,11 +200,11 @@
         "format": "󰨸",
         "interval": "once",
         "return-type": "json",
-        "on-click": "swaymsg -q exec '$clipboard'; waybar-signal clipboard",
-        "on-click-right": "swaymsg -q exec '$clipboard-del'; waybar-signal clipboard",
-        "on-click-middle": "rm -f ~/.cache/cliphist/db; waybar-signal clipboard",
+        "on-click": "swaymsg -q exec '$clipboard' && pkill -RTMIN+9 waybar",
+        "on-click-right": "swaymsg -q exec '$clipboard-del' && pkill -RTMIN+9 waybar",
+        "on-click-middle": "rm -f ~/.cache/cliphist/db && pkill -RTMIN+9 wayba",
         "exec": "printf '{\"tooltip\":\"%s\"}' $(cliphist list | wc -l)' item(s) in the clipboard\r(Mid click to clear)'",
-        "exec-if": "[ -x \"$(command -v cliphist)\" ] && [ $(cliphist list | wc -l) -gt 0 ]"
+        "exec-if": "[ -x \"$(command -v cliphist)\" ] && [ $(cliphist list | wc -l) -gt 0 ]",
         "signal": 9
     },
     "custom/layout": {
