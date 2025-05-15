@@ -89,7 +89,7 @@
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
         "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-        "on-click": "foot bluetuith",
+        "on-click": "xdg-terminal-exec bluetuith",
         "on-click-right": "rfkill toggle bluetooth"
     },
     "clock": {
@@ -106,7 +106,7 @@
     "cpu": {
         "format": "󰍛 {usage}%",
         "interval": 2,
-        "on-click": "foot btop",
+        "on-click": "xdg-terminal-exec btop",
         "tooltip": true
     },
     "disk": {
@@ -125,7 +125,7 @@
     "memory": {
         "interval": 30,
         "format": "󰘚 {used:0.1f}G/{total:0.1f}G",
-        "on-click": "foot btop"
+        "on-click": "xdg-terminal-exec btop"
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -157,7 +157,7 @@
                 ""
             ]
         },
-        "on-click": "foot pulsemixer",
+        "on-click": "xdg-terminal-exec pulsemixer",
         "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "on-click-middle": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
     },
@@ -172,7 +172,7 @@
             "",
             ""
         ],
-        "on-click": "foot btop"
+        "on-click": "xdg-terminal-exec btop"
     },
     "tray": {
         "icon-size": 20,
@@ -182,9 +182,9 @@
         "format": "󰨸",
         "interval": "once",
         "return-type": "json",
-        "on-click": "swaymsg -q exec '$clipboard'; waybar-signal clipboard",
-        "on-click-right": "swaymsg -q exec '$clipboard-del'; waybar-signal clipboard",
-        "on-click-middle": "rm -f ~/.cache/cliphist/db; waybar-signal clipboard",
+        "on-click": "swaymsg -q exec '$clipboard' && waybar-signal clipboard",
+        "on-click-right": "swaymsg -q exec '$clipboard-del' && waybar-signal clipboard",
+        "on-click-middle": "rm -f ~/.cache/cliphist/db && waybar-signal clipboard",
         "exec": "printf '{\"tooltip\":\"%s\"}' $(cliphist list | wc -l)' item(s) in the clipboard\r(Mid click to clear)'",
         "exec-if": "[ -x \"$(command -v cliphist)\" ] && [ $(cliphist list | wc -l) -gt 0 ]",
         "signal": 9
