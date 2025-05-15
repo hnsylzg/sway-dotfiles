@@ -217,7 +217,7 @@ window#waybar {
 
 #custom-wf-recorder {
     color: @error_color;
-    padding-right: 10px;
+    padding-right: 15px;
 }
 
 #custom-valent.dangerously-empty {
