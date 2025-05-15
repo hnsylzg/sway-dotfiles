@@ -11,6 +11,7 @@
         "custom/playerctl"
     ],
     "modules-center": [
+        "custom/wf-recorder",
         "sway/mode",
         "sway/workspaces",
         "custom/scratchpad",
@@ -214,16 +215,7 @@
         "on-scroll-up": "playerctl position 10-",
         "on-scroll-down": "playerctl position 10+"
     },
-    "custom/update": {
-        "format": " {}",
-        "interval": 3600,
-        "return-type": "json",
-        "exec": "~/.config/waybar/checkupdates.sh status",
-        "exec-if": "~/.config/waybar/checkupdates.sh check",
-        "on-click": "~/.config/waybar/checkupdates.sh check && ~/.config/waybar/checkupdates.sh upgrade",
-        "on-click-middle": "pkill -RTMIN+14 waybar",
-        "signal": 14
-    },
+
     "custom/scratchpad": {
         "format-text": "{}",
         "return-type": "json",
@@ -233,5 +225,24 @@
         "exec-if": "exit 0",
         "on-click": "swaymsg 'scratchpad show'",
         "on-click-right": "swaymsg 'move scratchpad'"
+    },
+        "custom/update": {
+        "format": " {}",
+        "interval": 3600,
+        "return-type": "json",
+        "exec": "~/.config/waybar/checkupdates.sh status",
+        "exec-if": "~/.config/waybar/checkupdates.sh check",
+        "on-click": "~/.config/waybar/checkupdates.sh check && ~/.config/waybar/checkupdates.sh upgrade",
+        "on-click-middle": "pkill -RTMIN+14 waybar",
+        "signal": 14
+    },
+    "custom/wf-recorder": {
+        "interval": "once",
+        "return-type": "json",
+        "format": "{}",
+        "exec": "echo '{\"class\": \"recording\",\"text\":\"󰑊\",\"tooltip\":\"press $mod+Esc to stop recording\"}'",
+        "exec-if": "pgrep wf-recorder",
+        "on-click": "pkill -RTMIN+8 waybar",
+        "signal": 8
     }
 }

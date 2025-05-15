@@ -11,6 +11,7 @@
         "custom/cava-internal"
     ],
     "modules-center": [
+        "custom/wf-recorder",
         "sway/mode",
         "clock"
     ],
@@ -74,7 +75,7 @@
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
         "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-        "on-click": "foot bluetuith",
+        "on-click": "xdg-terminal-exec bluetuith",
         "on-click-right": "rfkill toggle bluetooth"
     },
     "clock": {
@@ -92,7 +93,7 @@
     "cpu": {
         "interval": 2,
         "format": "󰍛 {usage}%",
-        "on-click": "foot btop"
+        "on-click": "xdg-terminal-exec btop"
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -108,7 +109,7 @@
         "states": {
             "warning": 85
         },
-        "on-click": "foot btop"
+        "on-click": "xdg-terminal-exec btop"
     },
     "mpd": {
         "max-length": 25,
@@ -144,7 +145,7 @@
                 ""
             ]
         },
-        "on-click": "foot pulsemixer",
+        "on-click": "xdg-terminal-exec pulsemixer",
         "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "tooltip": false
     },
@@ -159,7 +160,7 @@
             "",
             ""
         ],
-        "on-click": "foot btop"
+        "on-click": "xdg-terminal-exec btop"
     },
     "tray": {
         "icon-size": 20,
@@ -174,11 +175,11 @@
         "format": "󰨸",
         "interval": "once",
         "return-type": "json",
-        "on-click": "swaymsg -q exec '$clipboard'; waybar-signal clipboard",
-        "on-click-right": "swaymsg -q exec '$clipboard-del'; waybar-signal clipboard",
-        "on-click-middle": "rm -f ~/.cache/cliphist/db; waybar-signal clipboard",
+        "on-click": "swaymsg -q exec '$clipboard' && pkill -RTMIN+9 waybar",
+        "on-click-right": "swaymsg -q exec '$clipboard-del' && pkill -RTMIN+9 waybar",
+        "on-click-middle": "rm -f ~/.cache/cliphist/db && pkill -RTMIN+9 waybar",
         "exec": "printf '{\"tooltip\":\"%s\"}' $(cliphist list | wc -l)' item(s) in the clipboard\r(Mid click to clear)'",
-        "exec-if": "[ -x \"$(command -v cliphist)\" ] && [ $(cliphist list | wc -l) -gt 0 ]"
+        "exec-if": "[ -x \"$(command -v cliphist)\" ] && [ $(cliphist list | wc -l) -gt 0 ]",
         "signal": 9
     },
     "custom/launcher": {
@@ -192,16 +193,7 @@
         "on-click": "hyprctl exc",
         "tooltip": false
     },
-    "custom/update": {
-        "format": " {}",
-        "interval": 3600,
-        "return-type": "json",
-        "exec": "~/.config/waybar/checkupdates.sh status",
-        "exec-if": "~/.config/waybar/checkupdates.sh check",
-        "on-click": "~/.config/waybar/checkupdates.sh check && ~/.config/waybar/checkupdates.sh upgrade",
-        "on-click-middle": "waybar-signal pacman",
-        "signal": 14
-    },
+    
     "custom/scratchpad": {
         "format-text": "{}",
         "return-type": "json",
@@ -211,5 +203,24 @@
         "exec-if": "exit 0",
         "on-click": "swaymsg 'scratchpad show'",
         "on-click-right": "swaymsg 'move scratchpad'"
+    },
+    "custom/update": {
+        "format": " {}",
+        "interval": 3600,
+        "return-type": "json",
+        "exec": "~/.config/waybar/checkupdates.sh status",
+        "exec-if": "~/.config/waybar/checkupdates.sh check",
+        "on-click": "~/.config/waybar/checkupdates.sh check && ~/.config/waybar/checkupdates.sh upgrade",
+        "on-click-middle": "pkill -RTMIN+14 waybar",
+        "signal": 14
+    },
+    "custom/wf-recorder": {
+        "interval": "once",
+        "return-type": "json",
+        "format": "{}",
+        "exec": "echo '{\"class\": \"recording\",\"text\":\"󰑊\",\"tooltip\":\"press $mod+Esc to stop recording\"}'",
+        "exec-if": "pgrep wf-recorder",
+        "on-click": "pkill -RTMIN+8 waybar",
+        "signal": 8
     }
 }
