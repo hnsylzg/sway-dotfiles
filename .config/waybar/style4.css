@@ -217,7 +217,7 @@ window#waybar {
 
 #custom-wf-recorder {
     color: @error_color;
-    font-size=20px;
+    font-size: 20px;
     padding-right: 15px;
 }
 
