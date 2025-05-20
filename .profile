@@ -21,7 +21,6 @@ export SHELL=/usr/bin/zsh
 
 # set ozone platform to wayland
 export ELECTRON_OZONE_PLATFORM_HINT=auto
-export ELECTRON_OZONE_PLATFORM_HINT=wayland
 
 # Disable hardware cursors. This might fix issues with
 # disappearing cursors

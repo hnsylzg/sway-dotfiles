@@ -13,7 +13,8 @@
     ],
     "modules-center": [
         "custom/wf-recorder",
-        "sway/mode"
+        "sway/mode",
+        "sway/window"
     ],
     "modules-right": [
         "custom/update",
