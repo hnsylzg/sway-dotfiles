@@ -27,6 +27,7 @@ set $locking swaylock -f -c 000000 --show-failed-attempts --fade-in 0.2 --grace 
 # set $initialize_mounting_daemon '[ -x "$(command -v pcmanfm-qt)" ] && pcmanfm-qt -d'
 set $initialize_mounting_daemon '[ -x "$(command -v thunar)" ] && nice -n 15 thunar --daemon'
 set $autotiling '[ -x "$(command -v autotiling)" ] && autotiling || [ -x "$(command -v autotiling-rs)" ] && autotiling-rs'
+set $initialize_workspace_icons '[ -x "$(command -v sworkstyle)" ] && systemctl --now --user enable sworkstyle'
 
 set $cliphist_watch '[ -x "$(command -v wl-paste)" ] && [ -x "$(command -v cliphist)" ] &&  until pgrep -x waybar >/dev/null; do sleep 0.3; done; sleep 1; wl-paste --watch waybar-signal clipboard'
 set $cliphist_store '[ -x "$(command -v wl-paste)" ] && [ -x "$(command -v cliphist)" ] && wl-paste --watch cliphist store'
