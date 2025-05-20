@@ -58,7 +58,6 @@ window#waybar {
 
 /* Each module */
 #custom-pacman,
-#custom-menu,
 #custom-help,
 #custom-scratchpad,
 #custom-github,
@@ -78,6 +77,7 @@ window#waybar {
 #temperature,
 #backlight,
 #language,
+#custom-launcher,
 #custom-adaptive-light,
 #custom-sunset,
 #custom-playerctl,
@@ -85,7 +85,6 @@ window#waybar {
 #custom-update,
 #idle_inhibitor,
 #mpd,
-#custom-launcher,
 #custom-playerlabel,
 #custom-cava-internal,
 #custom-powermenu,
@@ -100,7 +99,7 @@ window#waybar {
  * -------------------------------------------------------------------------- */
 
 #custom-scratchpad,
-#custom-menu,
+#custom-launcher,
 #workspaces button.focused,
 #clock {
     color: @theme_bg_color;
@@ -152,7 +151,7 @@ window#waybar {
     color: @error_color;
 }
 
-#custom-menu {
+#custom-launcher {
     padding-left: 8px;
     padding-right: 13px;
 }
@@ -197,8 +196,8 @@ window#waybar {
     /* To compensate for the top border and still have vertical centering */
     padding-top: 3px;
     padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     color: @theme_selected_bg_color;
 }
 
